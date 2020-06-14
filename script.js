@@ -1,13 +1,8 @@
 
 
-//----define moment varibles used to show time----//
+//Displaying Calendar Date//
 var date = moment().format("MMM Do YY");
-// var currentTime = moment().format('H');
-// console.log(currentTime);
-
-//-------append date----------//
 $("#currentDay").append(date);
-
 
 // Background updates according to the time. If the time has passed, it will turn into light grey as unavailable
 
@@ -19,8 +14,7 @@ function updatetime() {
   for(var i = 0; i < timeOfday.length; i++) {
 
     if (parseInt(timeOfday[i]) > currentTime) {
-      $("#" + timeOfday[i]).attr("style", "background-color: #58ce7b");
-
+      $("#" + timeOfday[i]).attr("style", "background-color: #7ef1a1");
 
     }
     else if (parseInt(timeOfday[i]) < currentTime) {
@@ -28,7 +22,7 @@ function updatetime() {
 
     }
     else if (parseInt(timeOfday[i]) == currentTime) {
-      $("#" + timeOfday[i]).attr("style", "background-color: #fc665e");
+      $("#" + timeOfday[i]).attr("style", "background-color: #f81c11");
     
     }
   }
@@ -37,7 +31,8 @@ function updatetime() {
 //--onclick event to save user input to local storage---//
 $(".rowBtn").on("click", function() {
     var timeOfdayClicked = $(this).parent().attr("id");
-    var textContent = $("input").val();
+    var id = $(this)[0].previousElementSibling["id"];
+    var textContent = $("input#"+id).val();
     
     localStorage.setItem(timeOfdayClicked, textContent);
     console.log(timeOfdayClicked, textContent);
@@ -61,3 +56,5 @@ $(".rowBtn").on("click", function() {
   $("#4pm").children("input").val(localStorage.getItem("4pm"));
 
   $("#5pm").children("input").val(localStorage.getItem("5pm"));
+
+  
