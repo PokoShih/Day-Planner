@@ -9,6 +9,6 @@ localstorage.clear()
 
 
 Deployed Application:
-<img src=Assets/example.png>
-<img src=Assets/example2.png>
+<img src="Assets/example.png">
+<img src="Assets/example2.png">
 https://pokoshih.github.io/Day-Planner/
